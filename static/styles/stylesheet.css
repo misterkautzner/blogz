@@ -1,0 +1,13 @@
+
+.error {
+    color:red;
+    font-size:3em;
+}
+
+h1 {
+    text-align: center;
+}
+
+body {
+    background-color:cyan !important;
+}

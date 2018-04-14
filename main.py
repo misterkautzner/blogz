@@ -59,10 +59,10 @@ def add():
             title_error = 'You must enter a title.'
 
         if not body:
-            body_error = 'You must enter a body for your blog post.'
+            body_error = 'You must enter a body for your blog post.' 
 
         if title_error or body_error:
-            return render_template('add_form.html', title='Add a Blog Entry', title_error = title_error, body_error = body_error, blog_title=title, body=body)  
+            return render_template('add_form.html', title='Add a Blog Entry', title_error = title_error, body_error = body_error, blog_title=title, body=body)       
 
         new_blog_post = Blog(title, body)
 
