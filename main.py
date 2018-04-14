@@ -27,12 +27,20 @@ def index():
 @app.route('/blog') 
 def blog():
 
+    blog_id = request.args.get('id')
+
+    if blog_id:
+        blog = Blog.query.get(blog_id)
+
+        return render_template('blog_post.html', title = blog.title, body=blog.body)
+    
+
     blogs = Blog.query.all()
 
     return render_template('blog.html', title='Build a Blog', blogs=blogs)
 
 
-@app.route('/add', methods=['GET', 'POST'])
+@app.route('/newpost', methods=['GET', 'POST'])
 def add():
     title_error = ''
     body_error = ''
@@ -60,11 +68,11 @@ def add():
 
         db.session.add(new_blog_post)
         db.session.commit()
+        id = new_blog_post.id
 
-        return redirect('/blog')
+        return redirect('/blog?id={0}'.format(id))
 
     return render_template('add_form.html', title='Add a Blog Entry')
-
 
 
 
