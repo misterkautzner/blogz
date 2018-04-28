@@ -5,9 +5,24 @@
         <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/stylesheet.css') }}">
     </head>
     <body>
-        <a href='/'>Main Blog Page</a> &ensp;
-        <a href='/newpost'>Add a Blog Entry</a>
+        <a href='/'>Home</a> &ensp;
+        <a href='/blog'>All Posts</a> &ensp;
+        <a href='/newpost'>New Post</a> &ensp; &ensp;
+        <a href='/signup'>New User</a> &ensp;
+        {% if session['user'] %}
+            <a href='/logout'>{{session['user']}} (logout)</a>
+        {% else %}
+            <a href='/login'>Login</a>
+        {% endif %}
         <h1>{{title}}</h1>
+
+        {% with messages = get_flashed_messages() %}
+            <ul>
+                {% for message in messages %}
+                    <li class = {{category}}>{{message}}</li>
+                {% endfor %}
+            </ul>
+        {% endwith %}
 
         {% block content %}
 

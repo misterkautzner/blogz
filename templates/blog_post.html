@@ -1,8 +1,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h5>by <a href='/blog?user={{blog.user.id}}'>{{blog.user.username}}</a></h5>
 
-<p>{{body}}</p>
+<p>{{blog.body}}</p>
 
 
 {% endblock %}

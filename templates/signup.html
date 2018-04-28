@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<form action='/signup' method='POST'>
+    <table>
+        <tr>
+            <td>
+                <label for='username'>Username:</label>
+            </td>
+            <td>
+                <input name='username' type='text' />
+            </td>
+
+        </tr>
+        <tr>
+            <td>
+                <label for='password'>Password:</label>
+            </td>
+            <td>
+                <input name='password' type='password' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label for='verify'>Verify password:</label>
+            </td>
+            <td>
+                <input name='verify' type='password' />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type='submit' value='Login' />
+            </td>
+        </tr>
+</form>
+</table>
+
+{% endblock %}
